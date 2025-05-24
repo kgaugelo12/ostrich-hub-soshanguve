@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - Ostrich Hub Soshanguve</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<style>
+  body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(120deg, #fcc50f, #000000);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container {
+  background: rgb #fcc50f(3, 3, 3);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.logo {
+  width: 100px;
+  animation: bounce 2s infinite;
+  margin-bottom: 20px;
+}
+
+input {
+  display: block;
+  margin: 10px auto;
+  padding: 10px;
+  width: 80%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #000000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #000000;
+}
+
+.fade-in {
+  animation: fadeInUp 1s ease forwards;
+  opacity: 0;
+}
+
+.fade-in:nth-child(2) { animation-delay: 0.2s; }
+.fade-in:nth-child(3) { animation-delay: 0.4s; }
+.fade-in:nth-child(4) { animation-delay: 0.6s; }
+.fade-in:nth-child(5) { animation-delay: 0.8s; }
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+</style>
+<body>
+  <div class="login-container">
+    <img class="logo" src="images/ostrich hub soshanguve.png" alt="Ostrich Hub Soshanguve">
+    <h2 class="fade-in">Login to Ostrich Hub</h2>
+    <input class="fade-in" type="text" id="username" placeholder="Enter username">
+    <input class="fade-in" type="password" id="password" placeholder="Enter password">
+    <button class="fade-in" onclick="login()">Login</button>
+  </div>
+
+  <script>
+    function login() {
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+
+      if (user === "admin" && pass === "1234") {
+        localStorage.setItem("loggedIn", "true");
+        window.location.href = "index.html"; // Replace with your main page
+      } else {
+        alert("Incorrect username or password");
+      }
+    }
+  </script>
+</body>
+</html>
